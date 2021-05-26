@@ -1,8 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
-const path = require('path');
+const userRouter = require('./router');
 const app = express();
 app.use(morgan('dev'));
+
+app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
   res.send('hello world');
