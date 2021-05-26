@@ -8,6 +8,10 @@ app.use(morgan('dev'));
 app.use('/user', userRouter);
 app.use('/post', postRouter);
 
+app.get('/products/:prodId', (req, res) => {
+  res.send('I am listening');
+});
+
 app.get('/', (req, res) => {
   res.send('hello world');
 });
