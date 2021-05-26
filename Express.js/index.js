@@ -9,6 +9,14 @@ app.get('/help', (req, res) => {
   res.send('this is help page');
 });
 
+app.get('/json', (req, res) => {
+  res.json({
+    name: 'joney talukdar',
+    age: 21,
+    profession: 'full stack web developer',
+  });
+});
+
 app.get('/', (req, res) => {
   res.send('hello world');
 });
