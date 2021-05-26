@@ -9,7 +9,8 @@ app.use('/user', userRouter);
 app.use('/post', postRouter);
 
 app.get('/products/:prodId', (req, res) => {
-  res.send('I am listening');
+  console.log(req.params);
+  res.send('I am listening' + req.params.prodId);
 });
 
 app.get('/', (req, res) => {
