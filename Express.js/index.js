@@ -1,7 +1,28 @@
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
 
-app.get('/about', (req, res) => {
+// app.use(morgan('dev'));
+
+const customMiddleware = (req, res, next) => {
+  if (req.url === '/about') {
+    res.send('<h1>This page is blocked by admin');
+  }
+  next();
+};
+
+const tinyLogger = () => {
+  return (req, res, next) => {
+    console.log(`${req.method} - ${req.url}`);
+    next();
+  };
+};
+
+const middleware = [customMiddleware, tinyLogger()];
+
+app.use(middleware);
+
+app.get('/about', morgan('dev'), (req, res) => {
   res.send('this is about page');
 });
 
