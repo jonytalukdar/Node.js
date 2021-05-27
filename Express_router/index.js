@@ -8,6 +8,9 @@ app.use(morgan('dev'));
 app.use('/user', userRouter);
 app.use('/post', postRouter);
 
+// route parmeter for post method
+
+// route parameter for get method
 app.get('/products/:prodId', (req, res) => {
   console.log(req.params);
   res.send('I am listening' + req.params.prodId);
