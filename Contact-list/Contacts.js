@@ -17,13 +17,13 @@ class Contacts {
     return contact;
   }
 
-  updateContactByid(id, updateContact) {
+  updateContactById(id, updateContact) {
     let index = this.contacts.findIndex((contact) => contact.id === id);
     this.contacts[index].name = updateContact.name || this.contacts[index].name;
     this.contacts[index].phone =
-      updateContact.name || this.contacts[index].phone;
+      updateContact.phone || this.contacts[index].phone;
     this.contacts[index].email =
-      updateContact.name || this.contacts[index].email;
+      updateContact.email || this.contacts[index].email;
 
     return this.contacts[index];
   }
