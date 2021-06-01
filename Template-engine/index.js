@@ -9,8 +9,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
+  let post = {
+    title: 'title',
+    body: 'post body',
+    published: true,
+  };
+
   res.render('index', {
     title: 'EJS is an awesome template engine for express',
+    post,
   });
 });
 

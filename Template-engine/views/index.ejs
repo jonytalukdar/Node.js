@@ -14,6 +14,12 @@
       doloremque eum necessitatibus amet sapiente expedita quod atque. Est,
       magnam.
     </p>
-    <%= new Date().toString() %>
+    <%= new Date().toString() %> <% if(post.published) { %>
+    <h2>Title : <%= post.title %></h2>
+    <p>Body : <%= post.body %></p>
+
+    <% } else{ %>
+    <p>Post is Not Yet published</p>
+    <% } %>
   </body>
 </html>
