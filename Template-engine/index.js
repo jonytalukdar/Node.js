@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('WE are working with template engine');
+  res.render('index');
 });
 
 const PORT = process.env.PORT || 3000;
