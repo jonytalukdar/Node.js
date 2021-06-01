@@ -15,9 +15,17 @@ app.get('/', (req, res) => {
     published: true,
   };
 
+  let posts = [
+    { title: 'title one', author: 'joney talukdar' },
+    { title: 'title two', author: 'joney talukdar' },
+    { title: 'title three', author: 'joney talukdar' },
+    { title: 'title four', author: 'joney talukdar' },
+  ];
+
   res.render('index', {
     title: 'EJS is an awesome template engine for express',
     post,
+    posts,
   });
 });
 

@@ -14,12 +14,22 @@
       doloremque eum necessitatibus amet sapiente expedita quod atque. Est,
       magnam.
     </p>
-    <%= new Date().toString() %> <% if(post.published) { %>
-    <h2>Title : <%= post.title %></h2>
-    <p>Body : <%= post.body %></p>
+    <%= new Date().toString() %>
 
-    <% } else{ %>
-    <p>Post is Not Yet published</p>
-    <% } %>
+    <div>
+      <% if(post.published) { %>
+      <h2>Title : <%= post.title %></h2>
+      <p>Body : <%= post.body %></p>
+
+      <% } else{ %>
+      <p>Post is Not Yet published</p>
+      <% } %>
+    </div>
+
+    <ul>
+      <% for(let p of posts) { %>
+      <li><%= p.title %> By <%= p.author %></li>
+      <% } %>
+    </ul>
   </body>
 </html>
