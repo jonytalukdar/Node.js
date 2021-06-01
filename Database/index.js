@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -14,4 +15,15 @@ app.get('/', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server Started At ${PORT}`));
+
+mongoose
+  .connect(
+    `mongodb+srv://adminTest:test123@cluster0.shsop.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+    {
+      useNewUrlParser: true,
+    }
+  )
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server Started At ${PORT}`));
+  })
+  .catch((err) => console.log(err));
